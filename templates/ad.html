@@ -1,0 +1,54 @@
+<div id="ad" style="position: fixed;top:1px;left: 1px;width: 350px;height: 200px;border: 1px solid red;"
+     onmouseover="overFunc()" onmouseleave="leaveFunc()"
+>
+    <div style="font-size:12px">
+        <span>老牌公司，实力可靠！中建、中铁、中冶，中石化，中海油等均已入围。可中标，直签各种项目。过账回款快，配合度高，税点低，诚邀合作，可招投标，签合同，开发票，企业所得税千分之三，资质多样，工程款安全便捷，现面向全国开设办事处、项目部</span>
+        <br>
+        <span>石油化工一级、环保一级、市政公用一级、建筑一级、电力一级、钢结构一级、机电总包一级、消防设施一级、地基基础一级、建筑装修装饰一级、建筑机电安装一级、防水防腐保温一级、锅炉一级、管道安装一级、拆除甲级、水利水电二级、公路工程施工二级、输变电二级、冶金工程二级、各类化工、焦化、电厂、钢厂、药厂</span>
+        <br>
+        <a href="tencent://message/?uin=437179814&Site=437179814&menu=yes"> QQ </a>
+    </div>
+</div>
+
+<script>
+    let timer = null, wSpeed = 1, hSpeed = 1
+    let wWidth = window.screen.width
+    let wHeight = window.screen.height
+
+    let $div = $("#ad")
+    let dWidth = $div.width()
+    let dHeight = $div.height()
+
+    function move(left, top){
+        $div.css({'left': left + wSpeed + 'px', 'top': top + hSpeed + 'px'})
+    }
+
+    function makeTimer(){
+        return setInterval(()=>{
+            let bLeft = $div.offset().left,bTop = $div.offset().top;
+            if (bLeft + dWidth > wWidth || bLeft <= 0) {
+                wSpeed = - wSpeed
+            }
+            if (bTop + dHeight >= wHeight || bTop <= 0){
+                hSpeed = - hSpeed
+            }
+
+            move(bLeft, bTop)
+        }, 10)
+    }
+
+    timer = makeTimer()
+    function overFunc(){
+        if (timer) {
+            clearInterval(timer)
+            timer = null
+        }
+    }
+
+    function leaveFunc(){
+        if (!timer){
+            timer = makeTimer()
+        }
+    }
+
+</script>

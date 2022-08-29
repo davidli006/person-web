@@ -14,6 +14,7 @@
             输变电二级、冶金工程二级、各类化工、焦化、电厂、钢厂、药厂
         </span>
         <br>
+        <div onclick="func_cp()"> 手机联系方式: 15664477239 </div>
         <a href="tencent://message/?uin=437179814&Site=437179814&menu=yes"> QQ </a>
     </div>
 </div>
@@ -57,6 +58,17 @@
         if (!timer){
             timer = makeTimer()
         }
+    }
+
+    function func_cp(){
+        let input = document.createElement("input")
+        document.body.append(input)
+        input.setAttribute("value", "15664477239")
+        input.select()
+        document.execCommand('copy')
+
+
+        document.body.removeChild(input)
     }
 
 </script>

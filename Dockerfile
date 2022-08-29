@@ -13,6 +13,5 @@ RUN echo 'deb http://mirrors.163.com/debian-security/ stretch/updates main non-f
 RUN apt update
 RUN apt install -y iproute2
 
-RUN echo "kakaxi"
 
 ENTRYPOINT  ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "main:app"]

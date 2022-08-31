@@ -16,4 +16,3 @@ def index():
 if __name__ == "__main__":
     app.run(host=HOST, port=PORT, debug=DEBUG)
 
-"docker run --name app -p 80:5000 -p 443:5000 -d app"

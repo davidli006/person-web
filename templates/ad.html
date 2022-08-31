@@ -19,7 +19,12 @@
             <span style="font-weight: 600">
                联系方式
             </span>
-            <span onclick="func_cp()" style="color: RGB(69,144,253);text-decoration:underline;">
+            <span onclick="func_cp()" style="color: RGB(69,144,253);text-decoration:underline;"
+                  data-container="body"
+                  data-toggle="复制"
+                  data-placement="top"
+                  data-content="手机号已复制到剪切板!"
+            >
                 手机: 18854809297
             </span>
             <span>&nbsp; </span>
@@ -32,8 +37,8 @@
 
 <script>
     let timer = null, wSpeed = 1, hSpeed = 1
-    let wWidth = window.screen.width
-    let wHeight = window.screen.height
+    let wWidth = document.body.clientWidth
+    let wHeight = document.body.clientHeight
 
     let $div = $("#ad")
     let dWidth = $div.width()
@@ -41,6 +46,9 @@
 
     function move(left, top){
         $div.css({'left': left + wSpeed + 'px', 'top': top + hSpeed + 'px'})
+
+        wWidth = document.body.clientWidth
+        wHeight = document.body.clientHeight
     }
 
     function makeTimer(){
@@ -92,6 +100,7 @@
             }
         })
     }
+
 
 </script>
 

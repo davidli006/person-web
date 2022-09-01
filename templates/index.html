@@ -8,6 +8,7 @@
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/font.css") }}">
     <link rel="stylesheet" href="{{ url_for("static", filename="css/main.css") }}">
 
     <!-- jQuery文件, 不会用5自带的. -->
@@ -16,48 +17,70 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
 </head>
-<body>
+<body id="body">
+{% include "ad.html" %}
 <div class="header">
-    <img src="{{ url_for("static", filename="images/header_log.png") }}"
-         alt="山东军辉建设集团有限公司">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="{{ url_for("static", filename="images/header_log.png") }}"
+             alt="山东军辉建设集团有限公司">
+        </div>
+        <div class="col-lg-4 align-items-center " style="display: flex;">
+            <div class="col-sm-12">
+                <div class="d-flex align-items-center border-start border-5 border-info px-3">
+                    <h1 class="flex-shrink-0 display-5 text-info mb-0" data-toggle="counter-up">合作</h1>
+                    <div class="ps-4">
+                        <div>
+                            <a href="tencent://message/?uin=437179814&Site=437179814&menu=yes">
+                                QQ: 437179814
+                            </a>
+                        </div>
+                        <div onclick="func_cp()" style="color: RGB(69,144,253);text-decoration:underline;">
+                            手机号: 18854809297
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
+
 <div class="container">
     <div class="row" style="margin-top: 4em;">
         <div class="col-lg-6">
             <div class="row g-3">
                 <div class="col-6 text-start">
-                    <img class="img-fluid rounded w-100 wow zoomIn"
-                         data-wow-delay="0.1s"
-                         title="地源热泵"
-                         src="{{ url_for('static', filename='images/xm_1.jpg') }}">
+                    <img class="img-fluid rounded w-100 wow zoomIn" alt="地源热泵" data-wow-delay="0.1s"
+                         title="地源热泵" src="{{ url_for('static', filename='images/xm_1.jpg') }}">
                 </div>
                 <div class="col-6 text-start">
-                    <img class="img-fluid rounded w-75 wow zoomIn"
-                         data-wow-delay="0.3s"
-                         title="山东昌邑石化循环水供暖工程"
+                    <img class="img-fluid rounded w-75 wow zoomIn" alt="山东昌邑石化循环水供暖工程"
+                         data-wow-delay="0.3s" title="山东昌邑石化循环水供暖工程"
                          src="{{ url_for('static', filename='images/xm_2.jpg') }}"
                          style="margin-top: 25%;">
                 </div>
                 <div class="col-6 text-end">
-                    <img class="img-fluid rounded w-75 wow zoomIn"
-                         data-wow-delay="0.5s"
-                         title="江苏科行环保科技有限公司烟气改造项目"
+                    <img class="img-fluid rounded w-75 wow zoomIn" alt="江苏科行环保科技有限公司烟气改造项目"
+                         data-wow-delay="0.5s" title="江苏科行环保科技有限公司烟气改造项目"
                          src="{{ url_for('static', filename='images/xm_3.jpg') }}">
                 </div>
                 <div class="col-6 text-end">
-                    <img class="img-fluid rounded w-100 wow zoomIn"
-                         data-wow-delay="0.7s"
-                         title="西安华联汽油加氢装置"
+                    <img class="img-fluid rounded w-100 wow zoomIn" alt="西安华联汽油加氢装置"
+                         data-wow-delay="0.7s" title="西安华联汽油加氢装置"
                          src="{{ url_for('static', filename='images/xm_4.jpg') }}">
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <h5 class="text-primary" style="font-family: fangsong;">
-                关于我们
-                <i class="bi bi-chevron-double-right"></i>
+            <h5 class="ff-secondary text-primary">
+                about us
             </h5>
-            <h1 class="mb-4">欢迎走进 <i class="bi bi-bar-chart"></i> 军辉</h1>
+            <h1 class="mb-4">
+                欢迎走进
+                <i class="bi bi-chevron-double-right text-primary" style="font-size: 0.5em;"></i>
+                军辉
+            </h1>
             <p class="mb-4">
                 山东军辉建设集团有限公司位于五岳独尊的泰山脚下，植根于建筑安装之乡和肥桃之乡——肥城市,物华天宝,人杰地灵。
             </p>
@@ -76,41 +99,67 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
     <div class="row" style="margin-top: 4em;margin-bottom: 5em;">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-            <!-- 指示符 -->
-            <ul class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ul>
-
-            <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg">
+        <div class="row">
+            <div class="text-center">
+                <h1>
+                    <span class="text-primary ff-secondary">
+                        戎马征程
+                    </span>
+                    <span style="font-style: italic;font-weight: bold;color: gold;font-family: fangsong;"> 光辉岁月</span>
+                </h1>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 1em;">
+            <div class="col-lg-4 text-left align-items-center" style="display: flex;">
+                <p>
+                &emsp;&emsp;军辉集团获“2020年度十大突出贡献企业”称号，副总经理李国超上台领奖。
+                董事长获“2020年度功勋企业家”、“2020年度十大突出贡献企业家”、“2020年全市抗击新冠肺炎疫情先进个人”荣誉称号。
+                </p>
+            </div>
+            <div class="col-lg-8">
+            <div class="container">
+                <!-- 创建轮播图 -->
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    <!-- 指示符 -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                    </div>
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner" style="margin-left: 3em;">
+                        <div class="carousel-item active">
+                            <img src="{{ url_for('static', filename='images/slide_1.jpg') }}" class="d-block"
+                                 alt="1" style="width:100%">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static', filename='images/slide_2.jpg') }}" class="d-block"
+                                 alt="2" style="width:100%">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static', filename='images/slide_3.jpg') }}" class="d-block"
+                                 alt="3" style="width:100%">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static', filename='images/slide_4.jpg') }}" class="d-block"
+                                 alt="4" style="width:100%">
+                        </div>
+                    </div>
+                    <!-- 左右切换按钮 -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
                 </div>
             </div>
-
-            <!-- 左右切换按钮 -->
-            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-
+        </div>
         </div>
     </div>
     <div class="row">
@@ -118,11 +167,12 @@
     </div>
 </div>
 
-
 <div class="footer" id="footer">
-    Copyright © 2022 山东军辉建设集团有限公司 All rights reserved 京ICP备2022025023号 京公网安备30166070564123474号
+    Copyright © 2022 山东军辉建设集团有限公司 All rights reserved &nbsp;&nbsp;&nbsp;&nbsp;
+    京ICP备2022025023号
 </div>
-{#  {% include "ad.html" %}#}
+{# 提示信息 #}
+<strong id="tip"></strong>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
